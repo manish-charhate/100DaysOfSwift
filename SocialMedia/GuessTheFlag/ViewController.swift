@@ -105,6 +105,12 @@ class ViewController: UIViewController {
         present(alertController, animated: true)
     }
 
+    /**
+     Challenge 3 from SocialMedia app:
+
+     Challenge: Go back to project 2 and add a bar button item that shows their score when tapped.
+     Note: I have added support to share score on tap of "Share score with friends" button of alert instead of bar button item.
+     */
     private func shareScore() {
         let activityViewController = UIActivityViewController(
             activityItems: ["Hey!! I scored \(score) out of 10 in GuessTheFlag game."],
