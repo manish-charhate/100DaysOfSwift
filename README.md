@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This repository contains solutions to all the projects covered in [Pauls Hudson's 100 days of Swift](https://www.hackingwithswift.com/100).
+This repository contains solutions to all the projects covered in [Paul Hudson's 100 days of Swift](https://www.hackingwithswift.com/100).
 Although the projects are mostly same as discussed by Paul Hudson, I have added some additional features which I came across while exploring corresponding topics in depth.
 
 ## 2. Projects
