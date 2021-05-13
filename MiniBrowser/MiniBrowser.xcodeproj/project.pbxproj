@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		AC124A6B264D6FC100B1BC87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC124A6A264D6FC100B1BC87 /* AppDelegate.swift */; };
 		AC124A6D264D6FC100B1BC87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC124A6C264D6FC100B1BC87 /* SceneDelegate.swift */; };
-		AC124A6F264D6FC100B1BC87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC124A6E264D6FC100B1BC87 /* ViewController.swift */; };
+		AC124A6F264D6FC100B1BC87 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC124A6E264D6FC100B1BC87 /* WebViewController.swift */; };
 		AC124A72264D6FC100B1BC87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC124A70264D6FC100B1BC87 /* Main.storyboard */; };
 		AC124A74264D6FC200B1BC87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC124A73264D6FC200B1BC87 /* Assets.xcassets */; };
 		AC124A77264D6FC200B1BC87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC124A75264D6FC200B1BC87 /* LaunchScreen.storyboard */; };
+		AC124A7F264DB2E300B1BC87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC124A7E264DB2E300B1BC87 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC124A67264D6FC100B1BC87 /* MiniBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC124A6A264D6FC100B1BC87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC124A6C264D6FC100B1BC87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC124A6E264D6FC100B1BC87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC124A6E264D6FC100B1BC87 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		AC124A71264D6FC100B1BC87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC124A73264D6FC200B1BC87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC124A76264D6FC200B1BC87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC124A78264D6FC200B1BC87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC124A7E264DB2E300B1BC87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				AC124A6A264D6FC100B1BC87 /* AppDelegate.swift */,
 				AC124A6C264D6FC100B1BC87 /* SceneDelegate.swift */,
-				AC124A6E264D6FC100B1BC87 /* ViewController.swift */,
+				AC124A6E264D6FC100B1BC87 /* WebViewController.swift */,
 				AC124A70264D6FC100B1BC87 /* Main.storyboard */,
 				AC124A73264D6FC200B1BC87 /* Assets.xcassets */,
 				AC124A75264D6FC200B1BC87 /* LaunchScreen.storyboard */,
 				AC124A78264D6FC200B1BC87 /* Info.plist */,
+				AC124A7E264DB2E300B1BC87 /* ViewController.swift */,
 			);
 			path = MiniBrowser;
 			sourceTree = "<group>";
@@ -138,8 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC124A6F264D6FC100B1BC87 /* ViewController.swift in Sources */,
+				AC124A6F264D6FC100B1BC87 /* WebViewController.swift in Sources */,
 				AC124A6B264D6FC100B1BC87 /* AppDelegate.swift in Sources */,
+				AC124A7F264DB2E300B1BC87 /* ViewController.swift in Sources */,
 				AC124A6D264D6FC100B1BC87 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
