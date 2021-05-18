@@ -8,5 +8,5 @@ build/
 *.perspective
 *.perspectivev3
 *.git
-xcuserdata/
+*/xcuserdata/
 xcshareddata/
