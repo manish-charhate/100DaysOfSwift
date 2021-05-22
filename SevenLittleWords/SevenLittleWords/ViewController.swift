@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     private var solutions = [String]()
     private var level = 1
     private var selectedButtons = [UIButton]()
-
+    private var attemptsLeft = 0
     private var score = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
@@ -88,6 +88,8 @@ class ViewController: UIViewController {
         view.addSubview(clearButton)
 
         let buttonsContainerView = UIView()
+        buttonsContainerView.layer.borderWidth = 0.4
+        buttonsContainerView.layer.borderColor = UIColor.gray.cgColor
         buttonsContainerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttonsContainerView)
 
@@ -99,6 +101,7 @@ class ViewController: UIViewController {
                 let letterButton = UIButton(type: .system)
                 letterButton.frame = CGRect(x: column * buttonWidth, y: row * buttonHeight, width: buttonWidth, height: buttonHeight)
                 letterButton.addTarget(self, action: #selector(letterButtonTapped), for: .touchUpInside)
+                letterButton.titleLabel?.font = .systemFont(ofSize: 28)
                 buttonsContainerView.addSubview(letterButton)
                 letterButtons.append(letterButton)
             }
@@ -147,7 +150,7 @@ class ViewController: UIViewController {
             if let fileContents = try? String(contentsOf: levelFileURL) {
                 var lines = fileContents.components(separatedBy: "\n")
                 lines.shuffle()
-
+                attemptsLeft = lines.count
                 for (index, line) in lines.enumerated() {
                     let components = line.components(separatedBy: ": ")
                     let answer = components[0]
@@ -176,9 +179,11 @@ class ViewController: UIViewController {
         }
     }
 
-    @objc private func submitButtonTapped(_ sender: UIButton) {
+    @objc private func submitButtonTapped() {
         guard let answer = answerTextField.text else { return }
+        guard !answer.isEmpty else { return }
 
+        attemptsLeft -= 1
         if let solutionPosition = solutions.firstIndex(of: answer) {
             selectedButtons.removeAll()
 
@@ -188,9 +193,20 @@ class ViewController: UIViewController {
 
             answerTextField.text = ""
             score += 1
+        } else {
+            score -= 1
+            let alertController = UIAlertController(
+                title: "Oops!",
+                message: "That's a wrong one",
+                preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default) { [weak self] _ in
+                self?.clearButtonTapped()
+            })
+            present(alertController, animated: true)
+            return
         }
 
-        if score % 7 == 0 {
+        if attemptsLeft == 0 {
             let alertController = UIAlertController(
                 title: "Well done!",
                 message: "Wanna try out next level?",
@@ -203,7 +219,7 @@ class ViewController: UIViewController {
         }
     }
 
-    @objc private func clearButtonTapped(_ sender: UIButton) {
+    @objc private func clearButtonTapped() {
         answerTextField.text = ""
         for button in selectedButtons {
             button.isHidden = false
