@@ -43,22 +43,17 @@ class ViewController: UICollectionViewController {
         let person = people[indexPath.item]
 
         let alertController = UIAlertController(
-            title: "Rename person",
+            title: "Perform Action",
             message: nil,
             preferredStyle: .alert)
 
-        alertController.addTextField()
+        alertController.addAction(UIAlertAction(title: "Rename", style: .default) { [weak self] _ in
+            self?.rename(person: person)
+        })
 
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-
-        alertController.addAction(UIAlertAction(
-            title: "Ok",
-            style: .default,
-            handler: { [weak self, weak alertController] _ in
-                guard let newName = alertController?.textFields?[0].text else { return }
-                person.name = newName
-                self?.collectionView.reloadData()
-        }))
+        alertController.addAction(UIAlertAction(title: "Delete", style: .default) { [weak self] _ in
+            self?.delete(person: person, at: indexPath)
+        })
 
         present(alertController, animated: true)
     }
@@ -67,7 +62,38 @@ class ViewController: UICollectionViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
+        imagePickerController.sourceType = UIImagePickerController.isSourceTypeAvailable(.camera) ? .camera : .photoLibrary
         present(imagePickerController, animated: true)
+    }
+
+    private func rename(person: Person) {
+        let alertController = UIAlertController(
+            title: "Rename",
+            message: nil,
+            preferredStyle: .alert)
+        alertController.addTextField()
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default) { [weak alertController, weak self] _ in
+            guard let newName = alertController?.textFields?[0].text else { return }
+            person.name = newName
+            self?.collectionView.reloadData()
+        })
+
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
+    }
+
+    private func delete(person: Person, at indexPath: IndexPath) {
+        let alertController = UIAlertController(
+            title: "Delete \(person.name)?",
+            message: "Are you sure you want to delete?",
+            preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Canfirm", style: .default) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.people.remove(at: indexPath.item)
+            strongSelf.collectionView.deleteItems(at: [indexPath])
+        })
+        present(alertController, animated: true)
     }
 }
 
@@ -97,4 +123,3 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         return pathURLs[0]
     }
 }
-
