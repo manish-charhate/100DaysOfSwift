@@ -10,6 +10,6 @@
 
 ## Screenshots:
 <p float="left">
-  <img src="https://github.com/manish-ios/100DaysOfSwift/blob/main/ImageList/Screenshots/ImageList-01.png" width="200" height="400"/>
-  <img src="https://github.com/manish-ios/100DaysOfSwift/blob/main/ImageList/Screenshots/ImageList-02.png" width="200" height="400"/>
+  <img src="https://github.com/manish-charhate/100DaysOfSwift/blob/main/ImageList/Screenshots/ImageList-01.png" width="200" height="400"/>
+  <img src="https://github.com/manish-charhate/100DaysOfSwift/blob/main/ImageList/Screenshots/ImageList-02.png" width="200" height="400"/>
 </p>
