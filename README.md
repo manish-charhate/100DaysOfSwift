@@ -14,7 +14,7 @@ Following is the list of all projects. Each project contains following sections:
 4. Challenges
 5. Screenshots of the app
 
-### [Project 1](https://github.com/manish-ios/100DaysOfSwift/tree/main/ImageList)
+### [Project 1](https://github.com/manish-charhate/100DaysOfSwift/tree/main/ImageList)
 
 ## Contributions
 
